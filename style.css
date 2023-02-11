@@ -1,0 +1,18 @@
+body,
+.main {
+  background: pink !important;
+}
+
+.main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.main .v-card + .v-card {
+  margin-top: 24px;
+}
+
+.main .v-chip + .v-chip {
+  margin-left: 4px;
+}
