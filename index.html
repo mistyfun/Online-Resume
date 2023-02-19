@@ -2,13 +2,13 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-
     <link href="/style.css" rel="stylesheet">
 </head>
 
@@ -17,34 +17,35 @@
     <v-app class="main">
         <v-card>
             <v-card-text class="d-flex align-center">
-                <v-img src="/profile_photo.jpg" class="rounded-circle" max-width="200"></v-img>
+                <v-img src="/profile_photo.jpg" max-width="150" style="border-radius:5px"></v-img>
                 <div class="ml-5">
                     <h2>
                         Hi, I'm Julie Wu
                     </h2>
                     <p class="mt-3">
-                        I am a Junior Backend Developer with experience in Java, Servlets, Spring Boot, and JDBC.
-                        I am passionate about developing robust and secure server-side applications,
-                        and I am also well-versed in web technologies such as HTML, CSS, and JavaScript.
-                        I am a motivated and organized individual who is always looking for new ways to
-                        improve my skills and grow in my field
+                        畢業於國立交通大學外文系、清華大學語言學研究所，於2022年10月參加Tibame Java養成班，以
+                        非本科生身分進入了程式語言這個領域之後，發現自己對密麻的程式碼產生濃厚的興趣,熱衷學習
+                        這個領域的知識與技術，喜歡自己在Debug後進入沉浸式模式，也熱愛涉獵各種技術分享文章，想
+                        把握任何一個能精進自己能力的機會。
                     </p>
                 </div>
             </v-card-text>
         </v-card>
         <v-card v-for="project in projects">
-            <v-card-title>{{ project.title }}</v-card-title>
+            <v-card-title class="d-flex justify-space-between">
+                {{ project.title }}
+                <v-btn :href="project.link" target="_blank" depressed small color="grey--lighten-2">
+                    <span>View Project</span>
+                    <v-icon right>mdi-open-in-new</v-icon>
+                </v-btn>
+            </v-card-title>
             <v-card-text>
                 <p>{{ project.description }}</p>
-                <p>
-                    Skills: <v-chip v-for="skill in project.skills" small class="ma-2" color="pink" label text-color="white">
+                Skills:
+                <v-chip v-for="skill in project.skills" small class="ma-1" color="green darken-4" label text-color="white">
                     <v-icon left>mdi-label</v-icon>
                     {{skill}}
                 </v-chip>
-
-<!--                    <v-chip v-for="skill in project.skills" small>{{skill}}</v-chip>-->
-                </p>
-                <a :href="project.link">Project Link</a>
             </v-card-text>
         </v-card>
     </v-app>

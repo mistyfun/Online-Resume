@@ -1,6 +1,9 @@
-body,
+body {
+  background: radial-gradient(#931026, #601522) !important;
+}
+
 .main {
-  background: pink !important;
+  background: transparent !important;
 }
 
 .main {
